@@ -177,32 +177,36 @@ describe('Rlimiter', function() {
 			var responses = [];
 
 			function callback() {
-				console.log('arguments')
-				console.log(arguments)
-				//responses.push(arguments);
+				responses.push(arguments);
 
-				//if (responses.length == clientsCount) {
-				//	// If there were any errors, report.
-				//	var err = responses.some(function(res) {
-				//		return res[0];
-				//	});
-				//
-				//	if (err) {
-				//		done(err);
-				//	} else {
-				//		responses.forEach(function(res) {
-				//			res[1].remaining.should.equal(left < 0 ? 0 : left);
-				//			left--;
-				//		});
-				//
-				//		for (var i = limit - 1; i < clientsCount; ++i) {
-				//			responses[i][1].remaining.should.equal(-1);
-				//		}
-				//
-				//		done();
-				//	}
-				//}
-				done()
+				if (responses.length === clientsCount) {
+					// if all the response, the .remaining should have 3, 2, 1, 0, -1 x 6
+					// If there were any errors, report.
+					var err = responses.some(function(res) {
+						return res[0];
+					});
+
+					if (err) {
+						done(err);
+					} else {
+						var negative = 0;
+						responses.forEach(function(res) {
+							if (res[1].remaining < 0) {
+								negative++;
+							}
+						});
+
+						for (var i = left; i < clientsCount; i++) {
+							if (i >= left) {
+								responses[i][1].remaining.should.equal(-1);
+							} else {
+								responses[i][1].remaining.should.to.be.above(-1);
+							}
+						}
+
+						done();
+					}
+				}
 			}
 
 			// Warm up and prepare the data.
