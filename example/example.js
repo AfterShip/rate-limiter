@@ -13,10 +13,34 @@ redis_client.on('connect', function(err) {
 				var rlimiter = new Rlimiter({
 					redis_client: redis_client,
 					key: 'usps',
-					rate_limit: 10,
+					rate_limit: 2,
 					duration: 10
 				});
 
+				rlimiter.get(function(err, results) {
+					console.log(err);
+					console.log(results);
+				});
+				rlimiter.get(function(err, results) {
+					console.log(err);
+					console.log(results);
+				});
+				rlimiter.get(function(err, results) {
+					console.log(err);
+					console.log(results);
+				});
+				rlimiter.get(function(err, results) {
+					console.log(err);
+					console.log(results);
+				});
+				rlimiter.get(function(err, results) {
+					console.log(err);
+					console.log(results);
+				});
+				rlimiter.get(function(err, results) {
+					console.log(err);
+					console.log(results);
+				});
 				rlimiter.get(function(err, results) {
 					console.log(err);
 					console.log(results);
