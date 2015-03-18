@@ -1,18 +1,18 @@
-# r3limiter [![Build Status](https://secure.travis-ci.org/AfterShip/r3limiter.png?branch=master)](http://travis-ci.org/AfterShip/r3limiter)
+# node-rlimit [![Build Status](https://secure.travis-ci.org/AfterShip/node-rlimit.png?branch=master)](http://travis-ci.org/AfterShip/node-rlimit)
 
 The Real Redis Rate Limiter for Node.js
 
 ## npm install
 
 ```
-npm install r3limiter
+npm install rlimit
 ```
 
 
 ## Examples
 
 ```
-var R3Limiter = require('r3limiter');
+var Limiter = require('rlimit');
 
 var redis = require('redis');
 var redis_client = redis.createClient(6379, 'localhost');
@@ -26,14 +26,14 @@ redis_client.on('connect', function(err) {
 				console.log(err);
 			} else {
 				// limit to 2 request per every 10s
-				var r3limiter = new R3Limiter({
+				var limiter = new Limiter({
 					redis_client: redis_client,
 					key: 'the-user-api-key',
 					limit: 2, // default is 10
 					duration: 10 // default is 60s
 				});
 
-				r3limiter.get(function(err, result) {
+				limiter.get(function(err, result) {
 					if (err) {
 						console.log(err);
 					} else {
