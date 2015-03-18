@@ -2,7 +2,7 @@
 local key = KEYS[1]
 
 --rate limit
-local rate_limit = KEYS[2]
+local limit = KEYS[2]
 
 --rate limit duration
 local duration = KEYS[3]
@@ -23,6 +23,6 @@ if token_remain then
     return cjson.encode({token_remain, time_to_reset})
 else
     --if no such key, create a key and store the remaining key in db
-    redis.call('set', key, rate_limit - 1, 'PX', duration * 1000);
-    return cjson.encode({rate_limit - 1, duration})
+    redis.call('set', key, limit - 1, 'PX', duration * 1000);
+    return cjson.encode({limit - 1, duration})
 end

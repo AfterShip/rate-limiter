@@ -1,16 +1,11 @@
-# rlimiter [![Build Status](https://secure.travis-ci.org/AfterShip/rlimiter.png?branch=master)](http://travis-ci.org/AfterShip/rlimiter)
+# r3limiter [![Build Status](https://secure.travis-ci.org/AfterShip/r3limiter.png?branch=master)](http://travis-ci.org/AfterShip/r3limiter)
 
-The redis rate limiter for node.js
+The Real Redis Rate Limiter for Node.js
 
-## Getting Started
-_(Coming soon)_
-
-## Documentation
-_(Coming soon)_
 
 ## Examples
 ```
-var Rlimiter = require('rlimiter');
+var R3 = require('r3');
 
 var redis = require('redis');
 var redis_client = redis.createClient(6379, 'localhost');
@@ -19,19 +14,19 @@ redis_client.on('connect', function(err) {
 	if (err) {
 		console.log(err);
 	} else {
-		redis_client.select(3, function(err) {
+		redis_client.select(0, function(err) {
 			if (err) {
 				console.log(err);
 			} else {
 				// limit to 2 request per every 10s
-				var rlimiter = new Rlimiter({
+				var r3limiter = new R3Limiter({
 					redis_client: redis_client,
 					key: 'the-user-api-key',
 					rate_limit: 2,
 					duration: 10
 				});
 
-				rlimiter.get(function(err, results) {
+				r3limiter.get(function(err, results) {
 					console.log(err);
 					console.log(results);
 				});
@@ -41,6 +36,9 @@ redis_client.on('connect', function(err) {
 });
 
 ```
+
+## TODO
+Add more test case
 
 
 ## Release History

@@ -1,10 +1,10 @@
 require('should');
-var Rlimiter = require('../lib/');
+var R3Limiter = require('../lib/');
 var redis = require('redis');
 
 var redis_client = redis.createClient();
 
-describe('Rlimiter', function() {
+describe('R3Limiter', function() {
 	beforeEach(function(done) {
 		redis_client.keys('limit:*', function(err, keys) {
 			if (err) return done(err);
@@ -16,14 +16,14 @@ describe('Rlimiter', function() {
 
 	describe('.limit', function() {
 		it('should always return limit 5', function(done) {
-			var rlimiter = new Rlimiter({
+			var r3limiter = new R3Limiter({
 				limit: 5,
 				key: 'something',
 				redis_client: redis_client
 			});
-			rlimiter.get(function(err, res) {
+			r3limiter.get(function(err, res) {
 				res.limit.should.equal(5);
-				rlimiter.get(function(err, res) {
+				r3limiter.get(function(err, res) {
 					res.limit.should.equal(5);
 					done();
 				});
@@ -33,17 +33,17 @@ describe('Rlimiter', function() {
 
 	describe('.remaining', function() {
 		it('should return remaining 4, 3, 2', function(done) {
-			var rlimiter = new Rlimiter({
+			var r3limiter = new R3Limiter({
 				limit: 5,
 				duration: 100000,
 				key: 'something',
 				redis_client: redis_client
 			});
-			rlimiter.get(function(err, res) {
+			r3limiter.get(function(err, res) {
 				res.remaining.should.equal(4);
-				rlimiter.get(function(err, res) {
+				r3limiter.get(function(err, res) {
 					res.remaining.should.equal(3);
-					rlimiter.get(function(err, res) {
+					r3limiter.get(function(err, res) {
 						res.remaining.should.equal(2);
 						done();
 					});
@@ -54,31 +54,31 @@ describe('Rlimiter', function() {
 
 	describe('.reset', function() {
 		it('should reset after 60000 second', function(done) {
-			var rlimiter = new Rlimiter({
+			var r3limiter = new R3Limiter({
 				limit: 5,
 				duration: 60000,
 				key: 'something',
 				redis_client: redis_client
 			});
-			rlimiter.get(function(err, res) {
+			r3limiter.get(function(err, res) {
 				res.reset.should.equal(60000);
 				done();
 			});
 		});
 	});
 
-	describe('when the rlimiter is exceeded', function() {
+	describe('when the r3limiter is exceeded', function() {
 		it('should return .remaining -1', function(done) {
-			var rlimiter = new Rlimiter({
+			var r3limiter = new R3Limiter({
 				limit: 2,
 				key: 'something',
 				redis_client: redis_client
 			});
-			rlimiter.get(function(err, res) {
+			r3limiter.get(function(err, res) {
 				res.remaining.should.equal(1);
-				rlimiter.get(function(err, res) {
+				r3limiter.get(function(err, res) {
 					res.remaining.should.equal(0);
-					rlimiter.get(function(err, res) {
+					r3limiter.get(function(err, res) {
 						// function caller should reject this call
 						res.remaining.should.equal(-1);
 						done();
@@ -92,19 +92,19 @@ describe('Rlimiter', function() {
 		it('should get reset < 2000', function(done) {
 			this.timeout(5000);
 
-			var rlimiter = new Rlimiter({
+			var r3limiter = new R3Limiter({
 				duration: 2000,
 				limit: 2,
 				key: 'something',
 				redis_client: redis_client
 			});
 
-			rlimiter.get(function(err, res) {
+			r3limiter.get(function(err, res) {
 				res.remaining.should.equal(1);
-				rlimiter.get(function(err, res) {
+				r3limiter.get(function(err, res) {
 					res.remaining.should.equal(0);
 					setTimeout(function() {
-						rlimiter.get(function(err, res) {
+						r3limiter.get(function(err, res) {
 							console.log(res.reset);
 							res.reset.should.be.below(2000);
 							res.remaining.should.equal(-1);
@@ -117,18 +117,18 @@ describe('Rlimiter', function() {
 	});
 
 	describe('when multiple successive calls are made', function() {
-		it('the next calls should not create again the rlimiter in Redis', function(done) {
-			var rlimiter = new Rlimiter({
+		it('the next calls should not create again the r3limiter in Redis', function(done) {
+			var r3limiter = new R3Limiter({
 				duration: 10000,
 				limit: 2,
 				key: 'something',
 				redis_client: redis_client
 			});
-			rlimiter.get(function(err, res) {
+			r3limiter.get(function(err, res) {
 				res.remaining.should.equal(1);
 			});
 
-			rlimiter.get(function(err, res) {
+			r3limiter.get(function(err, res) {
 				res.remaining.should.equal(0);
 				done();
 			});
@@ -137,18 +137,18 @@ describe('Rlimiter', function() {
 
 	describe('when trying to decrease before setting value', function() {
 		it('should create with ttl when trying to decrease', function(done) {
-			var rlimiter = new Rlimiter({
+			var r3limiter = new R3Limiter({
 				duration: 10000,
 				limit: 2,
 				key: 'something',
 				redis_client: redis_client
 			});
 			redis_client.setex('limit:something:count', -1, 1, function() {
-				rlimiter.get(function(err, res) {
+				r3limiter.get(function(err, res) {
 					res.remaining.should.equal(1);
-					rlimiter.get(function(err, res) {
+					r3limiter.get(function(err, res) {
 						res.remaining.should.equal(0);
-						rlimiter.get(function(err, res) {
+						r3limiter.get(function(err, res) {
 							res.remaining.should.equal(-1);
 							done();
 						});
@@ -158,14 +158,14 @@ describe('Rlimiter', function() {
 		});
 	});
 
-	describe('when multiple concurrent clients modify the rlimiter', function() {
+	describe('when multiple concurrent clients modify the r3limiter', function() {
 		var clientsCount = 10,
 			limit = 5,
 			left = limit - 1,
 			limits = [];
 
 		for (var i = 0; i < clientsCount; ++i) {
-			limits.push(new Rlimiter({
+			limits.push(new R3Limiter({
 				duration: 10000,
 				limit: limit,
 				key: 'something',
@@ -217,8 +217,8 @@ describe('Rlimiter', function() {
 					res.remaining.should.equal(4);
 
 					// Simulate multiple concurrent requests.
-					limits.forEach(function(rlimiter) {
-						rlimiter.get(callback);
+					limits.forEach(function(r3limiter) {
+						r3limiter.get(callback);
 					});
 				}
 			});

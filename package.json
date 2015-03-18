@@ -1,8 +1,8 @@
 {
-  "name": "rlimiter",
-  "description": "The redis rate limiter for node.js",
+  "name": "r3limiter",
+  "description": "The Real Redis Rate Limiter for Node.js",
   "version": "0.0.1",
-  "homepage": "https://github.com/AfterShip/rlimiter",
+  "homepage": "https://github.com/AfterShip/r3limiter",
   "author": {
     "name": "AfterShip",
     "email": "support@aftership.com",
@@ -10,18 +10,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/AfterShip/rlimiter.git"
+    "url": "git://github.com/AfterShip/r3limiter.git"
   },
   "bugs": {
-    "url": "https://github.com/AfterShip/rlimiter/issues"
+    "url": "https://github.com/AfterShip/r3limiter/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/AfterShip/rlimiter/blob/master/LICENSE-MIT"
+      "url": "https://github.com/AfterShip/r3limiter/blob/master/LICENSE-MIT"
     }
   ],
-  "main": "./index",
+  "main": "./lib/index",
   "engines": {
     "node": ">= 0.10.0"
   },
@@ -32,9 +32,11 @@
     "should": "^5.2.0"
   },
   "keywords": [
+    "redis rate limiter",
     "redis rate limit",
-    "redis imiter",
+    "redis limiter",
     "rate",
+    "ratelimiter",
     "ratelimit",
     "limiter",
     "limit"
