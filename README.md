@@ -59,11 +59,9 @@ Add more test case
 
 
 ## Release History
-2015-03-17 v0.0.2
-Fix example
+2015-03-18 v1.0.0
+Stable release
 
-2015-03-17 v0.0.1
-First public release
 
 ## License
 Copyright (c) 2015 AfterShip  
