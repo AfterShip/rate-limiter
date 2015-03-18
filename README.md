@@ -1,4 +1,4 @@
-# node-rlimit [![Build Status](https://secure.travis-ci.org/AfterShip/node-rlimit.png?branch=master)](http://travis-ci.org/AfterShip/node-rlimit)
+# rlimit [![Build Status](https://secure.travis-ci.org/AfterShip/rlimit.png?branch=master)](http://travis-ci.org/AfterShip/rlimit)
 
 The Real Redis Rate Limiter for Node.js
 
