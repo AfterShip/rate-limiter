@@ -15,13 +15,23 @@ redis_client.on('connect', function(err) {
 				var r3limiter = new R3Limiter({
 					redis_client: redis_client,
 					key: 'the-user-api-key',
-					rate_limit: 2,
-					duration: 10
+					limit: 2, // default is 10
+					duration: 10 // default is 60s
 				});
 
-				r3limiter.get(function(err, results) {
-					console.log(err);
-					console.log(results);
+				r3limiter.get(function(err, result) {
+					if (err) {
+						console.log(err);
+					} else {
+						console.log(result);
+
+						// { limit: 2, remaining: 1, reset: 10 }
+						if (result.remaining >= 0) {
+							console.log('I can do the request!');
+						} else {
+							console.log('I run out of limit! Try again after ' + result.reset + ' second.');
+						}
+					}
 				});
 			}
 		});
