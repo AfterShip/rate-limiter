@@ -5,7 +5,7 @@ The Real Redis Rate Limiter for Node.js
 
 ## Examples
 ```
-var R3 = require('r3');
+var R3Limiter = require('r3limiter');
 
 var redis = require('redis');
 var redis_client = redis.createClient(6379, 'localhost');
@@ -42,6 +42,9 @@ Add more test case
 
 
 ## Release History
+2015-03-17 v0.0.2
+Fix example
+
 2015-03-17 v0.0.1
 First public release
 
