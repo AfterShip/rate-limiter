@@ -15,6 +15,9 @@
   "bugs": {
     "url": "https://github.com/AfterShip/r3limiter/issues"
   },
+  "scripts": {
+    "test": "mocha"
+  },
   "licenses": [
     {
       "type": "MIT",
