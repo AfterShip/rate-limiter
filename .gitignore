@@ -1,6 +1,7 @@
 # =============== RubyMine.gitignore
 # =============== PhPStorm.gitignore
 .idea
+dump.rdb
 
 
 # =============== OSX.gitignore
