@@ -24,3 +24,5 @@ $RECYCLE.BIN/
 
 # Except the .htpassed
 !.htpasswd
+
+node_modules
