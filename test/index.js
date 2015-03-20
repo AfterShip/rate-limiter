@@ -1,3 +1,5 @@
+/*global describe,beforeEach,it,should */
+
 require('should');
 var Limiter = require('../lib/');
 var redis = require('redis');
@@ -7,8 +9,12 @@ var redis_client = redis.createClient();
 describe('Limiter', function() {
 	beforeEach(function(done) {
 		redis_client.keys('limit:*', function(err, keys) {
-			if (err) return done(err);
-			if (!keys.length) return done();
+			if (err) {
+				return done(err);
+			}
+			if (!keys.length) {
+				return done();
+			}
 			var args = keys.concat(done);
 			redis_client.del.apply(redis_client, args);
 		});
@@ -105,7 +111,7 @@ describe('Limiter', function() {
 					res.remaining.should.equal(0);
 					setTimeout(function() {
 						limiter.get(function(err, res) {
-							console.log(res.reset);
+							//console.log(res.reset);
 							res.reset.should.be.below(2000);
 							res.remaining.should.equal(-1);
 							done();
@@ -224,4 +230,34 @@ describe('Limiter', function() {
 			});
 		});
 	});
+
+
+	describe('test run helper', function() {
+		it('should return no errors', function(done) {
+			this.timeout(7000);
+
+			var limiter = new Limiter({
+				limit: 2,
+				duration: 1,
+				key: 'something',
+				redis_client: redis_client
+			});
+
+			limiter.run(function(err) {
+				(!err).should.equal(true);
+			});
+			limiter.run(function(err) {
+				(!err).should.equal(true);
+			});
+			limiter.run(function(err) {
+				(!err).should.equal(true);
+			});
+			limiter.run(function(err) {
+				(!err).should.equal(true);
+				done();
+			});
+
+		});
+	});
+
 });
