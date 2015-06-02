@@ -2,10 +2,10 @@
 local key = KEYS[1]
 
 --rate limit
-local limit = KEYS[2]
+local limit = ARGV[1]
 
 --rate limit duration
-local duration = KEYS[3]
+local duration = ARGV[2]
 
 local token_remain = redis.call('get', key);
 
