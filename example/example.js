@@ -1,13 +1,19 @@
 var Limiter = require('../lib/');
 
-var redis = require('redis');
-var redis_client = redis.createClient(6379, 'localhost');
+var redis = require('ioredis');
+var redis_client = new redis.Cluster([{
+	port: 30001,
+	host: '127.0.0.1'
+}, {
+		port: 30002,
+		host: '127.0.0.1'
+	}]);
 
-redis_client.on('connect', function(err) {
+redis_client.on('connect', function (err) {
 	if (err) {
 		console.log(err);
 	} else {
-		redis_client.select(0, function(err) {
+		redis_client.select(0, function (err) {
 			if (err) {
 				console.log(err);
 			} else {
@@ -19,7 +25,7 @@ redis_client.on('connect', function(err) {
 					duration: 10 // default is 60s
 				});
 
-				limiter.get(function(err, result) {
+				limiter.get(function (err, result) {
 					if (err) {
 						console.log(err);
 					} else {
