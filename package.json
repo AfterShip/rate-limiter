@@ -1,8 +1,8 @@
 {
-  "name": "@aftership/rlimit",
+  "name": "@aftership/rate-limiter",
   "description": "The Real Redis Rate Limiter for Node.js, accept ioredis client only for redis cluster",
-  "version": "2.0.1",
-  "homepage": "https://github.com/AfterShip/rlimit",
+  "version": "2.0.2",
+  "homepage": "https://github.com/AfterShip/rate-limiter",
   "author": {
     "name": "AfterShip",
     "email": "support@aftership.com",
@@ -10,10 +10,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/AfterShip/rlimit.git"
+    "url": "git://github.com/AfterShip/rate-limiter.git"
   },
   "bugs": {
-    "url": "https://github.com/AfterShip/rlimit/issues"
+    "url": "https://github.com/AfterShip/rate-limiter/issues"
   },
   "scripts": {
     "test": "mocha"
@@ -21,7 +21,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/AfterShip/rlimit/blob/master/LICENSE-MIT"
+      "url": "https://github.com/AfterShip/rate-limiter/blob/master/LICENSE-MIT"
     }
   ],
   "main": "./lib/index",

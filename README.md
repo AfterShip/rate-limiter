@@ -5,14 +5,14 @@ The Real Redis Rate Limiter for Node.js
 ## npm install
 
 ```
-npm install rlimit
+npm install @aftership/rate-limiter
 ```
 
 
 ## Examples
 
 ```
-var Limiter = require('rlimit');
+var Limiter = require('@aftership/rate-limiter');
 
 var redis = require('redis');
 var redis_client = redis.createClient(6379, 'localhost');
