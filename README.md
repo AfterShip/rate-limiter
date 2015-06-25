@@ -8,6 +8,9 @@ The Real Redis Rate Limiter for Node.js
 npm install @aftership/rate-limiter
 ```
 
+## Dependence
+The client must be `ioredis`
+
 
 ## Examples
 

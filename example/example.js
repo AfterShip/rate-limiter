@@ -1,13 +1,10 @@
 var Limiter = require('../lib/');
 
-var redis = require('ioredis');
-var redis_client = new redis.Cluster([{
-	port: 30001,
+var Redis = require('ioredis');
+var redis_client = new Redis({
+	port: 6379,
 	host: '127.0.0.1'
-}, {
-		port: 30002,
-		host: '127.0.0.1'
-	}]);
+});
 
 redis_client.on('connect', function (err) {
 	if (err) {

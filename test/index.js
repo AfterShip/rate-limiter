@@ -1,10 +1,13 @@
-/*global describe,beforeEach,it,should */
+/*global describe,beforeEach,it*/
 
 require('should');
 var Limiter = require('../lib/');
-var redis = require('redis');
+var Redis = require('ioredis');
 
-var redis_client = redis.createClient();
+var redis_client = new Redis({
+	port: 6379,
+	host: '127.0.0.1'
+});
 
 describe('Limiter', function() {
 	beforeEach(function(done) {
@@ -175,7 +178,7 @@ describe('Limiter', function() {
 				duration: 10000,
 				limit: limit,
 				key: 'something',
-				redis_client: redis.createClient()
+				redis_client: redis_client
 			}));
 		}
 

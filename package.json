@@ -23,11 +23,16 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "ioredis": "^1.5.5"
+  },
   "devDependencies": {
-    "mocha": "^2.2.1",
-    "redis": "^0.12.1",
-    "should": "^7.0.1"
+    "mocha": "^2.2.5",
+    "should": "^7.0.1",
+    "grunt-bumpup": "^0.6.2",
+    "grunt-git": "^0.3.4",
+    "time-grunt": "^1.1.1",
+    "grunt-contrib-jshint": "^0.11.2"
   },
   "keywords": [
     "redis rate limiter",
