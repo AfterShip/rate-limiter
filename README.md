@@ -1,23 +1,18 @@
-# This package is deprecated.
-
-Please use our new modules: [@aftership/rate-limiter](https://www.npmjs.com/package/@aftership/rate-limiter)
-
-
-# rlimit
+# rate-limiter [![Build Status](https://secure.travis-ci.org/AfterShip/rate-limiter.png?branch=master)](http://travis-ci.org/AfterShip/rate-limiter)
 
 The Real Redis Rate Limiter for Node.js
 
 ## npm install
 
 ```
-npm install rlimit
+npm install @aftership/rate-limiter
 ```
 
 
 ## Examples
 
 ```
-var Limiter = require('rlimit');
+var Limiter = require('@aftership/rate-limiter');
 
 var redis = require('redis');
 var redis_client = redis.createClient(6379, 'localhost');
@@ -60,12 +55,16 @@ redis_client.on('connect', function(err) {
 ```
 
 ## TODO
-Add more test case
+- Add more test case
+- Support redis cluster
 
 
 ## Release History
+2015-06-25 v2.0.3
+Support ~~Redis Cluster~~, stable now.
+
 2015-06-02 v2.0.0
-Support Redis Cluster
+Support Redis Cluster, using @aftership-name-space
 
 2015-03-18 v1.0.1
 Stable release
