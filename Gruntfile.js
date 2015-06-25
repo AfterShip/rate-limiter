@@ -8,6 +8,9 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-git');
 	grunt.loadNpmTasks('grunt-bumpup');
 
+	// These plugins provide necessary tasks.
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+
 
 	grunt.config.init({
 		exec: {
@@ -59,13 +62,8 @@ module.exports = function (grunt) {
 					'message': 'Increase package version.'
 				}
 			}
-		}
+		},
 
-	});
-
-
-	// Project configuration.
-	grunt.initConfig({
 		jshint: {
 			options: {
 				jshintrc: '.jshintrc'
@@ -80,15 +78,15 @@ module.exports = function (grunt) {
 				src: ['test/**/*.js']
 			}
 		}
-	});
 
-	// These plugins provide necessary tasks.
-	grunt.loadNpmTasks('grunt-contrib-jshint');
+	});
+	
 
 
 	// Default task.
 	grunt.registerTask('default', ['jshint']);
-	grunt.registerTask('default:publish', [
+
+	grunt.registerTask('publish', [
 		'bumpup:patch',
 		'gitadd:increase_package_version',
 		'gitcommit:increase_package_version',
