@@ -57,6 +57,15 @@ redis_client.on('connect', function(err) {
 
 ```
 
+## Test
+
+make sure local redis is on
+
+```
+npm test
+
+```
+
 ## TODO
 - Add more test case
 - Support redis cluster

@@ -1,47 +1,48 @@
 {
-  "name": "@aftership/rate-limiter",
-  "description": "The Real Redis Rate Limiter for Node.js, accept ioredis client only for redis cluster",
-  "version": "2.0.3",
-  "homepage": "https://github.com/AfterShip/rate-limiter",
-  "author": {
-    "name": "AfterShip",
-    "email": "support@aftership.com",
-    "url": "https://www.aftership.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/AfterShip/rate-limiter.git"
-  },
-  "bugs": {
-    "url": "https://github.com/AfterShip/rate-limiter/issues"
-  },
-  "scripts": {
-    "test": "mocha"
-  },
-  "license": "MIT",
-  "main": "./lib/index",
-  "engines": {
-    "node": ">= 0.10.0"
-  },
-  "dependencies": {
-    "ioredis": "^1.5.5"
-  },
-  "devDependencies": {
-    "mocha": "^2.2.5",
-    "should": "^7.0.1",
-    "grunt-bumpup": "^0.6.2",
-    "grunt-git": "^0.3.4",
-    "time-grunt": "^1.1.1",
-    "grunt-contrib-jshint": "^0.11.2"
-  },
-  "keywords": [
-    "redis rate limiter",
-    "redis rate limit",
-    "redis limiter",
-    "rate",
-    "ratelimiter",
-    "ratelimit",
-    "limiter",
-    "limit"
-  ]
+	"name": "@aftership/rate-limiter",
+	"description": "The Real Redis Rate Limiter for Node.js, accept ioredis client only for redis cluster",
+	"version": "2.0.3",
+	"homepage": "https://github.com/AfterShip/rate-limiter",
+	"author": {
+		"name": "AfterShip",
+		"email": "support@aftership.com",
+		"url": "https://www.aftership.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/AfterShip/rate-limiter.git"
+	},
+	"bugs": {
+		"url": "https://github.com/AfterShip/rate-limiter/issues"
+	},
+	"scripts": {
+		"test": "mocha"
+	},
+	"license": "MIT",
+	"main": "./lib/index",
+	"engines": {
+		"node": ">= 2.0.0"
+	},
+	"dependencies": {
+	},
+	"devDependencies": {
+		"grunt-bumpup": "^0.6.2",
+		"grunt-contrib-jshint": "^0.11.2",
+		"grunt-exec": "^0.4.6",
+		"grunt-git": "^0.3.4",
+		"ioredis": "^1.5.5",
+		"mocha": "^2.2.5",
+		"should": "^7.0.1",
+		"time-grunt": "^1.1.1"
+	},
+	"keywords": [
+		"redis rate limiter",
+		"redis rate limit",
+		"redis limiter",
+		"rate",
+		"ratelimiter",
+		"ratelimit",
+		"limiter",
+		"limit"
+	]
 }
