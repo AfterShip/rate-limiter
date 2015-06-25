@@ -1,4 +1,6 @@
-# rlimit [![Build Status](https://secure.travis-ci.org/AfterShip/rlimit.png?branch=master)](http://travis-ci.org/AfterShip/rlimit)
+# rlimit [![Build Status](https://secure.travis-ci.org/AfterShip/rate-limiter.png?branch=master)](http://travis-ci.org/AfterShip/rate-limiter)
+
+## This is unstable branch, please use 1.x version for production
 
 The Real Redis Rate Limiter for Node.js
 
@@ -60,7 +62,7 @@ Add more test case
 
 ## Release History
 2015-06-02 v2.0.0
-Support Redis Cluster
+Support Redis Cluster, using @aftership-name-space
 
 2015-03-18 v1.0.1
 Stable release
