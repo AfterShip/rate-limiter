@@ -1,7 +1,7 @@
 {
 	"name": "@aftership/rate-limiter",
 	"description": "The Real Redis Rate Limiter for Node.js, accept ioredis client only for redis cluster",
-	"version": "2.0.3",
+	"version": "2.0.4",
 	"homepage": "https://github.com/AfterShip/rate-limiter",
 	"author": {
 		"name": "AfterShip",
@@ -23,8 +23,7 @@
 	"engines": {
 		"node": ">= 2.0.0"
 	},
-	"dependencies": {
-	},
+	"dependencies": {},
 	"devDependencies": {
 		"grunt-bumpup": "^0.6.2",
 		"grunt-contrib-jshint": "^0.11.2",
