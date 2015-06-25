@@ -1,7 +1,7 @@
 {
   "name": "rlimit",
   "description": "The Real Redis Rate Limiter for Node.js",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "homepage": "https://github.com/AfterShip/rlimit",
   "author": {
     "name": "AfterShip",

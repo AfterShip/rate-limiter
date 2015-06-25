@@ -1,3 +1,8 @@
+# This package is deprecated.
+
+Please use our new modules: [@aftership/rate-limiter](https://www.npmjs.com/package/@aftership/rate-limiter)
+
+
 # rlimit [![Build Status](https://secure.travis-ci.org/AfterShip/rlimit.png?branch=master)](http://travis-ci.org/AfterShip/rlimit)
 
 The Real Redis Rate Limiter for Node.js
