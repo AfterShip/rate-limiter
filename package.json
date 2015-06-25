@@ -1,7 +1,7 @@
 {
   "name": "@aftership/rate-limiter",
   "description": "The Real Redis Rate Limiter for Node.js, accept ioredis client only for redis cluster",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "homepage": "https://github.com/AfterShip/rate-limiter",
   "author": {
     "name": "AfterShip",
