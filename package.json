@@ -1,47 +1,49 @@
 {
-	"name": "@aftership/rate-limiter",
-	"description": "The Real Redis Rate Limiter for Node.js, accept ioredis client only for redis cluster",
-	"version": "2.0.4",
-	"homepage": "https://github.com/AfterShip/rate-limiter",
-	"author": {
-		"name": "AfterShip",
-		"email": "support@aftership.com",
-		"url": "https://www.aftership.com"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/AfterShip/rate-limiter.git"
-	},
-	"bugs": {
-		"url": "https://github.com/AfterShip/rate-limiter/issues"
-	},
-	"scripts": {
-		"test": "mocha"
-	},
-	"license": "MIT",
-	"main": "./lib/index",
-	"engines": {
-		"node": ">= 2.0.0"
-	},
-	"dependencies": {},
-	"devDependencies": {
-		"grunt-bumpup": "^0.6.2",
-		"grunt-contrib-jshint": "^0.11.3",
-		"grunt-exec": "^0.4.6",
-		"grunt-git": "^0.3.7",
-		"ioredis": "^1.14.0",
-		"mocha": "^2.3.4",
-		"should": "^8.0.2",
-		"time-grunt": "^1.3.0"
-	},
-	"keywords": [
-		"redis rate limiter",
-		"redis rate limit",
-		"redis limiter",
-		"rate",
-		"ratelimiter",
-		"ratelimit",
-		"limiter",
-		"limit"
-	]
+  "name": "rate-limiter",
+  "description": "Rate limit for Node.js, with ioredis client",
+  "version": "2.0.4",
+  "homepage": "https://github.com/AfterShip/rate-limiter",
+  "author": {
+    "name": "AfterShip",
+    "email": "support@aftership.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/AfterShip/rate-limiter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AfterShip/rate-limiter/issues"
+  },
+  "main": "./lib/index",
+  "engines": {
+    "node": ">= 2.0.0"
+  },
+  "scripts": {
+    "test": "grunt lint && grunt coverage"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "eslint": "^1.10.3",
+    "eslint-config-aftership": "^1.5.0",
+    "grunt": "^0.4.5",
+    "grunt-eslint": "^17.3.1",
+    "grunt-mocha-istanbul": "^3.0.1",
+    "ioredis": "^1.14.0",
+    "istanbul": "^0.4.1",
+    "load-grunt-config": "^0.19.1",
+    "mocha": "^2.3.4"
+  },
+  "keywords": [
+    "redis rate limiter",
+    "redis rate limit",
+    "redis limiter",
+    "rate",
+    "ratelimiter",
+    "ratelimit",
+    "limiter",
+    "limit"
+  ],
+  "license": "MIT",
+  "private": false
 }
