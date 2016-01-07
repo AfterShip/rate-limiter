@@ -59,21 +59,15 @@ redis_client.on('connect', function(err) {
 
 ## Test
 
-make sure local redis is on
-
 ```
 npm test
 
 ```
 
-## TODO
-- Add more test case
-- Support redis cluster
-
 
 ## Release History
 2015-06-25 v2.0.3
-Support ~~Redis Cluster~~, stable now.
+Stable now.
 
 2015-06-02 v2.0.0
 Support Redis Cluster, using @aftership-name-space

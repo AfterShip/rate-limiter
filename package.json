@@ -26,13 +26,13 @@
 	"dependencies": {},
 	"devDependencies": {
 		"grunt-bumpup": "^0.6.2",
-		"grunt-contrib-jshint": "^0.11.2",
+		"grunt-contrib-jshint": "^0.11.3",
 		"grunt-exec": "^0.4.6",
-		"grunt-git": "^0.3.4",
-		"ioredis": "^1.5.5",
-		"mocha": "^2.2.5",
-		"should": "^7.0.1",
-		"time-grunt": "^1.1.1"
+		"grunt-git": "^0.3.7",
+		"ioredis": "^1.14.0",
+		"mocha": "^2.3.4",
+		"should": "^8.0.2",
+		"time-grunt": "^1.3.0"
 	},
 	"keywords": [
 		"redis rate limiter",
