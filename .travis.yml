@@ -8,11 +8,6 @@ services:
 notifications:
   email:
     - bossa@aftership.net
-env:
-  - CACHE_DIR=cache
-cache:
-  directories:
-    - $CACHE_DIR
 branches:
   only:
     - master
