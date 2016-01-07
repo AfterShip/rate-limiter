@@ -3,7 +3,7 @@
 const loadGruntConfig = require('load-grunt-config');
 const path = require('path');
 
-module.exports = (grunt) => {
+module.exports = function (grunt) {
 	loadGruntConfig(grunt, {
 		pkg: grunt.file.readJSON('package.json'), // Loads grunt tasks defined in package.json
 		configPath: path.join(process.cwd(), 'grunt-config'), // path to task.js files, defaults to grunt dir
