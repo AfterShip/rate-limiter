@@ -1,6 +1,7 @@
 /*global describe,beforeEach,it*/
 
-require('should');
+var chai = require('chai');
+chai.should();
 var Limiter = require('../lib/');
 var Redis = require('ioredis');
 

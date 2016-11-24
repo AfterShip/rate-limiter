@@ -1,97 +1,27 @@
 'use strict';
 
+const loadGruntConfig = require('load-grunt-config');
+const path = require('path');
 
 module.exports = function (grunt) {
-	require('time-grunt')(grunt);
+	loadGruntConfig(grunt, {
+		pkg: grunt.file.readJSON('package.json'), // Loads grunt tasks defined in package.json
+		configPath: path.join(process.cwd(), 'grunt-config'), // path to task.js files, defaults to grunt dir
+		init: true, // auto grunt.initConfig
 
-	grunt.loadNpmTasks('grunt-exec');
-	grunt.loadNpmTasks('grunt-git');
-	grunt.loadNpmTasks('grunt-bumpup');
-
-	// These plugins provide necessary tasks.
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-
-
-	grunt.config.init({
-		exec: {
-			npm_publish: {
-				cmd: function () {
-					return 'npm publish';
-				}
-			}
+		config: {
+			// additional config vars
 		},
-		bumpup: {
-			options: {
-				updateProps: {
-					pkg: 'package.json'
-				}
-			},
-			file: 'package.json'
-		},
-
-		gitpull: {
-			task: {
-				options: {
-					'verbose': true,
-					'remote': 'origin'
-				}
-			}
-		},
-		gitpush: {
-			task: {
-				options: {
-					'verbose': true,
-					'remote': 'origin'
-				}
-			}
-		},
-		gitadd: {
-			increase_package_version: {
-				options: {
-					'verbose': true
-				},
-				files: {
-					src: ['package.json']
-				}
-			}
-		},
-		gitcommit: {
-			increase_package_version: {
-				options: {
-					'verbose': true,
-					'message': 'Increase package version.'
-				}
-			}
-		},
-
-		jshint: {
-			options: {
-				jshintrc: '.jshintrc'
-			},
-			gruntfile: {
-				src: 'Gruntfile.js'
-			},
-			lib: {
-				src: ['lib/**/*.js']
-			},
-			test: {
-				src: ['test/**/*.js']
-			}
+		loadGruntTasks: {
+			pattern: ['grunt-*', '@*/grunt-*']
 		}
-
 	});
 
+	// Tasks
+	grunt.registerTask('coverage', ['mocha_istanbul:coverage']);
 
+	grunt.registerTask('lint', ['eslint']);
 
-	// Default task.
-	grunt.registerTask('default', ['jshint']);
-
-	grunt.registerTask('publish', [
-		'bumpup:patch',
-		'gitadd:increase_package_version',
-		'gitcommit:increase_package_version',
-		'gitpush',
-		'exec:npm_publish'
-	]);
-
+	// Default task
+	grunt.registerTask('default', []);
 };

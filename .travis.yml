@@ -1,11 +1,19 @@
 language: node_js
 node_js:
-  - "0.10"
-  - "0.12"
+  - 2.0.0
+  - 4.2.3
+sudo: false
 services:
   - redis-server
-before_script:
-  - npm install -g mocha
-  - npm install
+notifications:
+  email:
+    - bossa@aftership.net
+branches:
+  only:
+    - master
+install:
+  - . ./scripts/ci/setup.sh
 script:
-  - mocha
+  - . ./scripts/ci/run.sh
+after_script:
+  - bash <(curl -s https://codecov.io/bash)
