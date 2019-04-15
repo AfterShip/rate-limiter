@@ -1,5 +1,5 @@
 {
-  "name": "rate-limiter",
+  "name": "@aftership/rate-limiter",
   "description": "Rate limit for Node.js, with ioredis client",
   "version": "3.0.0",
   "homepage": "https://github.com/AfterShip/rate-limiter",
