@@ -3,9 +3,9 @@
 [![Build Status](https://travis-ci.org/AfterShip/rate-limiter.svg?branch=master)](https://travis-ci.org/AfterShip/rate-limiter)
 [![codecov.io](https://codecov.io/github/AfterShip/rate-limiter/coverage.svg?branch=master)](https://codecov.io/github/AfterShip/rate-limiter?branch=master)
 
-[![node](https://img.shields.io/node/v/rate-limiter.svg)]()
-[![npm](https://img.shields.io/npm/v/rate-limiter.svg)]()
-[![npm](https://img.shields.io/npm/dm/rate-limiter.svg)]()
+[![node](https://img.shields.io/node/v/@aftership/rate-limiter.svg)]()
+[![npm](https://img.shields.io/npm/v/@aftership/rate-limiter.svg)]()
+[![npm](https://img.shields.io/npm/dm/@aftership/rate-limiter.svg)]()
 
 
 Rate limit for Node.js, with ioredis client
