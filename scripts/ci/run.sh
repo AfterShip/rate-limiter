@@ -1,4 +1,4 @@
 #!/bin/sh
 
 yarn lint
-# yarn test
+yarn test
