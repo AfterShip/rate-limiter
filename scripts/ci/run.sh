@@ -1,4 +1,4 @@
 #!/bin/sh
 
-grunt lint &&
-grunt coverage
+yarn lint
+# yarn test

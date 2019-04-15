@@ -1,13 +1,12 @@
 language: node_js
 node_js:
-  - 2.0.0
-  - 4.2.3
+  - 8.15.1
 sudo: false
 services:
   - redis-server
 notifications:
   email:
-    - bossa@aftership.net
+    - bossa@aftership.com
 branches:
   only:
     - master

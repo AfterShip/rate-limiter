@@ -1,6 +1,11 @@
 {
-	"extends": "aftership",
+	"extends": "airbnb-base",
 	"rules": {
-		"no-var": 0
+		"comma-dangle": "off",
+		"no-tabs": "off",
+		"indent": "off"
+	},
+	"env": {
+		"jest": true
 	}
 }

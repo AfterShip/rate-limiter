@@ -1,4 +1,3 @@
 #!/bin/sh
 
-npm install -g grunt-cli > /dev/null
-npm install > /dev/null
+yarn --no-optional --pure-lockfile > /dev/null

@@ -1,0 +1,6 @@
+**/bower_components/**
+**/node_modules/**
+coverage/**
+**/test/**
+**/grunt-config/**
+**/Gruntfile.js
