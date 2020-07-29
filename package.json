@@ -1,7 +1,7 @@
 {
   "name": "@aftership/rate-limiter",
   "description": "Rate limit for Node.js, with ioredis client",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "homepage": "https://github.com/AfterShip/rate-limiter",
   "author": {
     "name": "AfterShip",
@@ -24,11 +24,11 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.17.1",
-    "ioredis": "^4.9.0",
-    "jest": "^24.7.1"
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "ioredis": "^4.17.3",
+    "jest": "^26.1.0"
   },
   "keywords": [
     "redis rate limiter",
