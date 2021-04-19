@@ -14,5 +14,3 @@ install:
   - . ./scripts/ci/setup.sh
 script:
   - . ./scripts/ci/run.sh
-after_script:
-  - bash <(curl -s https://codecov.io/bash)
