@@ -1,7 +1,6 @@
 # rate-limiter
 
 [![Build Status](https://travis-ci.org/AfterShip/rate-limiter.svg?branch=master)](https://travis-ci.org/AfterShip/rate-limiter)
-[![codecov.io](https://codecov.io/github/AfterShip/rate-limiter/coverage.svg?branch=master)](https://codecov.io/github/AfterShip/rate-limiter?branch=master)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAfterShip%2Frate-limiter.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FAfterShip%2Frate-limiter?ref=badge_shield)
 
 [![node](https://img.shields.io/node/v/@aftership/rate-limiter.svg)]()
